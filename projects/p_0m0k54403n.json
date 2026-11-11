@@ -1,0 +1,755 @@
+{
+  "$schema": "../schema/project.schema.json",
+  "format": "director3d.project",
+  "version": 1,
+  "id": "p_0m0k54403n",
+  "name": "街頭對話",
+  "revision": 49,
+  "createdAt": "2026-11-09T14:08:17.285Z",
+  "updatedAt": "2026-11-10T03:40:21.669Z",
+  "settings": {
+    "duration": 12,
+    "fps": 24,
+    "aspect": "16:9",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "environment": {
+      "preset": "day",
+      "skyColor": null,
+      "sunAzimuth": 135,
+      "sunElevation": 50,
+      "fog": true,
+      "fogDensity": 0.2,
+      "shadows": false
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "type": "ground",
+      "name": "地面",
+      "color": "#8f9488",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "size": 200
+      },
+      "tracks": {}
+    },
+    {
+      "id": "road",
+      "type": "road",
+      "name": "道路",
+      "color": "#55585e",
+      "position": [
+        -6,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "length": 120,
+        "width": 8,
+        "centerLine": true,
+        "sidewalks": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "bldgA",
+      "type": "building",
+      "name": "大樓 A",
+      "color": "#b9bcc2",
+      "position": [
+        14,
+        0,
+        -10
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 14,
+        "depth": 12,
+        "floors": 8,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "bldgB",
+      "type": "building",
+      "name": "大樓 B",
+      "color": "#c9b9a6",
+      "position": [
+        14,
+        0,
+        8
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 12,
+        "depth": 10,
+        "floors": 5,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "bldgC",
+      "type": "building",
+      "name": "大樓 C",
+      "color": "#a9b4bf",
+      "position": [
+        -24,
+        0,
+        -6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 16,
+        "depth": 14,
+        "floors": 12,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "lamp1",
+      "type": "streetLight",
+      "name": "路燈",
+      "color": "#4a4d52",
+      "position": [
+        -1.2,
+        0,
+        -6
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 5,
+        "arm": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "lamp2",
+      "type": "streetLight",
+      "name": "路燈",
+      "color": "#4a4d52",
+      "position": [
+        -1.2,
+        0,
+        10
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 5,
+        "arm": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree1",
+      "type": "tree",
+      "name": "樹",
+      "color": "#4f8a3c",
+      "position": [
+        -0.8,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 6,
+        "trunkColor": "#6b4f3a",
+        "seed": 1
+      },
+      "tracks": {}
+    },
+    {
+      "id": "bench",
+      "type": "bench",
+      "name": "長椅",
+      "color": "#7a5a3a",
+      "position": [
+        1.2,
+        0,
+        -2
+      ],
+      "rotation": [
+        0,
+        -90,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 1.8
+      },
+      "tracks": {}
+    },
+    {
+      "id": "car",
+      "type": "car",
+      "name": "路過的車",
+      "color": "#c0392b",
+      "position": [
+        -8,
+        0,
+        30
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "sedan"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -8,
+                0,
+                30
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 8,
+              "v": [
+                -8,
+                0,
+                -40
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "hero",
+      "type": "male",
+      "name": "主角",
+      "color": "#3b6fd8",
+      "position": [
+        0.25000193550884525,
+        0,
+        2.149928386172725
+      ],
+      "rotation": [
+        0,
+        322.016,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 1.75,
+        "build": "average",
+        "pose": "walk"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -0.789,
+                0,
+                -2.553
+              ]
+            },
+            {
+              "t": 3.7083,
+              "v": [
+                -0.789,
+                0,
+                7.293
+              ]
+            }
+          ]
+        },
+        "rotation": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                0,
+                0,
+                0
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "heroine",
+      "type": "female",
+      "name": "女主角",
+      "color": "#d64541",
+      "position": [
+        -0.042,
+        0,
+        -1.217
+      ],
+      "rotation": [
+        0,
+        -2.203,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 1.63,
+        "build": "average",
+        "hair": "long",
+        "outfit": "dress",
+        "pose": "walk"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                0.007,
+                0,
+                -2.506
+              ]
+            },
+            {
+              "t": 3.7083,
+              "v": [
+                -0.271,
+                0,
+                4.728
+              ]
+            }
+          ]
+        },
+        "rotation": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                0,
+                -2.203,
+                0
+              ]
+            },
+            {
+              "t": 3.7083,
+              "v": [
+                0,
+                -2.203,
+                0
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "crowd",
+      "type": "crowd",
+      "name": "路人",
+      "color": "#8c9099",
+      "position": [
+        3.5,
+        0,
+        2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "count": 14,
+        "width": 4,
+        "depth": 30,
+        "pose": "walk",
+        "facing": "random",
+        "colorVariation": 0.6,
+        "seed": 7
+      },
+      "tracks": {}
+    },
+    {
+      "id": "camA",
+      "type": "camera",
+      "name": "A 機 全景",
+      "color": "#f0b429",
+      "position": [
+        -4.649,
+        2.267,
+        2.652
+      ],
+      "rotation": [
+        -0.113,
+        -42.203,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {},
+      "camera": {
+        "rig": "tripod",
+        "lens": "standard",
+        "focalLength": 35,
+        "sensor": "super35",
+        "fisheye": {
+          "fov": 180,
+          "mapping": "equidistant",
+          "circular": false
+        },
+        "lookAt": {
+          "target": "heroine",
+          "point": null,
+          "aim": "feet",
+          "offset": [
+            0,
+            1.483,
+            0
+          ]
+        },
+        "follow": null,
+        "shake": {
+          "preset": "none",
+          "amount": 0.5,
+          "seed": 1
+        }
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -2.783,
+                1.976,
+                0.585
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "camB",
+      "type": "camera",
+      "name": "B 機 過肩",
+      "color": "#f0b429",
+      "position": [
+        0,
+        1.6,
+        8
+      ],
+      "rotation": [
+        -8.368,
+        5.044,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {},
+      "camera": {
+        "rig": "tripod",
+        "lens": "standard",
+        "focalLength": 35,
+        "sensor": "super35",
+        "fisheye": {
+          "fov": 180,
+          "mapping": "equidistant",
+          "circular": false
+        },
+        "lookAt": {
+          "target": "hero",
+          "point": null,
+          "aim": "feet",
+          "offset": [
+            0,
+            1.402,
+            0
+          ]
+        },
+        "follow": null,
+        "shake": {
+          "preset": "none",
+          "amount": 0.5,
+          "seed": 1
+        }
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 3,
+              "v": [
+                0.583,
+                1.708,
+                0.87
+              ]
+            }
+          ]
+        },
+        "camera.focalLength": {
+          "keys": [
+            {
+              "t": 3,
+              "v": 50.1
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "camC",
+      "type": "camera",
+      "name": "C 機 反打",
+      "color": "#f0b429",
+      "position": [
+        0,
+        1.6,
+        8
+      ],
+      "rotation": [
+        -2.505,
+        167.328,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {},
+      "camera": {
+        "rig": "handheld",
+        "lens": "standard",
+        "focalLength": 28,
+        "sensor": "super35",
+        "fisheye": {
+          "fov": 180,
+          "mapping": "equidistant",
+          "circular": false
+        },
+        "lookAt": {
+          "target": "hero",
+          "point": null,
+          "aim": "feet",
+          "offset": [
+            0,
+            1.505,
+            0
+          ]
+        },
+        "follow": null,
+        "shake": {
+          "preset": "handheld",
+          "amount": 0.5,
+          "seed": 1
+        }
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 3,
+              "v": [
+                0.756,
+                1.596,
+                -1.727
+              ]
+            }
+          ]
+        },
+        "camera.focalLength": {
+          "keys": [
+            {
+              "t": 3,
+              "v": 46.2
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "cuts": [
+    {
+      "t": 0,
+      "camera": "camA"
+    },
+    {
+      "t": 4,
+      "camera": "camB"
+    },
+    {
+      "t": 7,
+      "camera": "camC"
+    },
+    {
+      "t": 9.5,
+      "camera": "camB"
+    }
+  ],
+  "markers": [
+    {
+      "t": 2.5833,
+      "label": "主角停下"
+    },
+    {
+      "t": 4,
+      "label": "台詞 1"
+    },
+    {
+      "t": 7,
+      "label": "台詞 2"
+    }
+  ]
+}

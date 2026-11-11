@@ -1,0 +1,5418 @@
+{
+  "$schema": "../schema/project.schema.json",
+  "format": "director3d.project",
+  "version": 1,
+  "id": "t-extras-v2",
+  "name": "誰先給台階（測試）",
+  "revision": 9,
+  "createdAt": "2026-11-10T02:53:06.961Z",
+  "updatedAt": "2026-11-10T03:36:03.315Z",
+  "notes": "鬧彆扭裡的拉鋸：誰先給台階。寫實輕喜劇，暖色日光下藏一根小刺。初秋午後台北老城區人行道，一側騎樓、一側行道樹。基準距離＝倒退走在兩人前方幾步的同行者。",
+  "settings": {
+    "duration": 15,
+    "fps": 24,
+    "aspect": "16:9",
+    "resolution": [
+      1920,
+      1080
+    ],
+    "environment": {
+      "preset": "day",
+      "skyColor": null,
+      "sunAzimuth": 240,
+      "sunElevation": 50,
+      "fog": true,
+      "fogDensity": 0.22,
+      "shadows": true
+    }
+  },
+  "objects": [
+    {
+      "id": "ground",
+      "type": "ground",
+      "name": "地面",
+      "color": "#8c8a83",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "size": 160
+      },
+      "tracks": {}
+    },
+    {
+      "id": "road",
+      "type": "road",
+      "name": "車道",
+      "color": "#5a5c60",
+      "position": [
+        -6,
+        0,
+        -10
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "length": 150,
+        "width": 7,
+        "centerLine": true,
+        "sidewalks": false
+      },
+      "tracks": {}
+    },
+    {
+      "id": "sidewalk",
+      "type": "plane",
+      "name": "人行道（紅磚）",
+      "color": "#a9806a",
+      "position": [
+        0.15,
+        0,
+        -10
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 3.7,
+        "height": 150,
+        "orientation": "floor"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "curb",
+      "type": "box",
+      "name": "路緣石",
+      "color": "#a3a29b",
+      "position": [
+        -2.5,
+        0,
+        -10
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 0.18,
+        "height": 0.14,
+        "depth": 150
+      },
+      "tracks": {}
+    },
+    {
+      "id": "arcadeFloor",
+      "type": "plane",
+      "name": "騎樓地面",
+      "color": "#bdb19c",
+      "position": [
+        3.6,
+        0,
+        -10
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 2.8,
+        "height": 150,
+        "orientation": "floor"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "farWalk",
+      "type": "plane",
+      "name": "對面人行道",
+      "color": "#a58a78",
+      "position": [
+        -11,
+        0,
+        -10
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 3,
+        "height": 150,
+        "orientation": "floor"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree1",
+      "type": "tree",
+      "name": "行道樹 1",
+      "color": "#4f8a3c",
+      "position": [
+        -2.05,
+        0,
+        -59.616
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.3,
+        "trunkColor": "#6b4f3a",
+        "seed": 1
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree2",
+      "type": "tree",
+      "name": "行道樹 2",
+      "color": "#4f8a3c",
+      "position": [
+        -2.05,
+        0,
+        -52.855999999999995
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.4,
+        "trunkColor": "#6b4f3a",
+        "seed": 2
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree3",
+      "type": "tree",
+      "name": "行道樹 3",
+      "color": "#5d8f3f",
+      "position": [
+        -2.05,
+        0,
+        -45.495999999999995
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.5,
+        "trunkColor": "#6b4f3a",
+        "seed": 3
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree4",
+      "type": "tree",
+      "name": "行道樹 4",
+      "color": "#4f8a3c",
+      "position": [
+        -2.05,
+        0,
+        -38.736
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.6000000000000005,
+        "trunkColor": "#6b4f3a",
+        "seed": 4
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree5",
+      "type": "tree",
+      "name": "行道樹 5",
+      "color": "#4f8a3c",
+      "position": [
+        -2.05,
+        0,
+        -31.975999999999996
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.7,
+        "trunkColor": "#6b4f3a",
+        "seed": 5
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree6",
+      "type": "tree",
+      "name": "行道樹 6",
+      "color": "#5d8f3f",
+      "position": [
+        -2.05,
+        0,
+        -24.615999999999996
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.8,
+        "trunkColor": "#6b4f3a",
+        "seed": 6
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree7",
+      "type": "tree",
+      "name": "行道樹 7",
+      "color": "#4f8a3c",
+      "position": [
+        -2.05,
+        0,
+        -17.855999999999998
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.9,
+        "trunkColor": "#6b4f3a",
+        "seed": 7
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree8",
+      "type": "tree",
+      "name": "行道樹 8",
+      "color": "#4f8a3c",
+      "position": [
+        -2.05,
+        0,
+        -10.495999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 6,
+        "trunkColor": "#6b4f3a",
+        "seed": 8
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree9",
+      "type": "tree",
+      "name": "行道樹 9",
+      "color": "#5d8f3f",
+      "position": [
+        -2.05,
+        0,
+        -3.735999999999997
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.2,
+        "trunkColor": "#6b4f3a",
+        "seed": 9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree10",
+      "type": "tree",
+      "name": "行道樹 10",
+      "color": "#4f8a3c",
+      "position": [
+        -2.05,
+        0,
+        3.0240000000000027
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.3,
+        "trunkColor": "#6b4f3a",
+        "seed": 10
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree11",
+      "type": "tree",
+      "name": "行道樹 11",
+      "color": "#4f8a3c",
+      "position": [
+        -2.05,
+        0,
+        10.384000000000002
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.4,
+        "trunkColor": "#6b4f3a",
+        "seed": 11
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree12",
+      "type": "tree",
+      "name": "行道樹 12",
+      "color": "#5d8f3f",
+      "position": [
+        -2.05,
+        0,
+        17.144000000000002
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.5,
+        "trunkColor": "#6b4f3a",
+        "seed": 12
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree13",
+      "type": "tree",
+      "name": "行道樹 13",
+      "color": "#4f8a3c",
+      "position": [
+        -2.05,
+        0,
+        24.504
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.6000000000000005,
+        "trunkColor": "#6b4f3a",
+        "seed": 13
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree14",
+      "type": "tree",
+      "name": "行道樹 14",
+      "color": "#4f8a3c",
+      "position": [
+        -2.05,
+        0,
+        31.264000000000003
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.7,
+        "trunkColor": "#6b4f3a",
+        "seed": 14
+      },
+      "tracks": {}
+    },
+    {
+      "id": "tree15",
+      "type": "tree",
+      "name": "行道樹 15",
+      "color": "#5d8f3f",
+      "position": [
+        -2.05,
+        0,
+        38.024
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "style": "round",
+        "height": 5.8,
+        "trunkColor": "#6b4f3a",
+        "seed": 15
+      },
+      "tracks": {}
+    },
+    {
+      "id": "lamp1",
+      "type": "streetLight",
+      "name": "路燈",
+      "color": "#9aa4b2",
+      "position": [
+        -2.3,
+        0,
+        -13.5
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 6,
+        "arm": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "lamp2",
+      "type": "streetLight",
+      "name": "路燈",
+      "color": "#9aa4b2",
+      "position": [
+        -2.3,
+        0,
+        13.5
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 6,
+        "arm": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "lamp3",
+      "type": "streetLight",
+      "name": "路燈",
+      "color": "#9aa4b2",
+      "position": [
+        -2.3,
+        0,
+        -40.5
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 6,
+        "arm": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper1",
+      "type": "building",
+      "name": "騎樓樓上 1",
+      "color": "#b9b2a4",
+      "position": [
+        6,
+        3.6,
+        -66.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 6.95,
+        "floors": 4,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop1",
+      "type": "box",
+      "name": "店面 1",
+      "color": "#5d5853",
+      "position": [
+        7.4,
+        0,
+        -66.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 6.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar1",
+      "type": "pillar",
+      "name": "騎樓柱 1",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -69.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper2",
+      "type": "building",
+      "name": "騎樓樓上 2",
+      "color": "#d3c4a2",
+      "position": [
+        6,
+        3.6,
+        -60
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 5.95,
+        "floors": 3,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop2",
+      "type": "box",
+      "name": "店面 2",
+      "color": "#71665a",
+      "position": [
+        7.4,
+        0,
+        -60
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 5.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar2",
+      "type": "pillar",
+      "name": "騎樓柱 2",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -62.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper3",
+      "type": "building",
+      "name": "騎樓樓上 3",
+      "color": "#aaa79e",
+      "position": [
+        6,
+        3.6,
+        -54.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 4.95,
+        "floors": 2,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop3",
+      "type": "box",
+      "name": "店面 3",
+      "color": "#625e58",
+      "position": [
+        7.4,
+        0,
+        -54.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 4.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar3",
+      "type": "pillar",
+      "name": "騎樓柱 3",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -56.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper4",
+      "type": "building",
+      "name": "騎樓樓上 4",
+      "color": "#c8b59b",
+      "position": [
+        6,
+        3.6,
+        -50
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 3.95,
+        "floors": 4,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop4",
+      "type": "box",
+      "name": "店面 4",
+      "color": "#5a5650",
+      "position": [
+        7.4,
+        0,
+        -50
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 3.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar4",
+      "type": "pillar",
+      "name": "騎樓柱 4",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -51.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper5",
+      "type": "building",
+      "name": "騎樓樓上 5",
+      "color": "#bfb7ab",
+      "position": [
+        6,
+        3.6,
+        -44.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 6.95,
+        "floors": 3,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop5",
+      "type": "box",
+      "name": "店面 5",
+      "color": "#6b625a",
+      "position": [
+        7.4,
+        0,
+        -44.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 6.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar5",
+      "type": "pillar",
+      "name": "騎樓柱 5",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -47.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper6",
+      "type": "building",
+      "name": "騎樓樓上 6",
+      "color": "#d6cbb8",
+      "position": [
+        6,
+        3.6,
+        -38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 5.95,
+        "floors": 2,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop6",
+      "type": "box",
+      "name": "店面 6",
+      "color": "#5d5853",
+      "position": [
+        7.4,
+        0,
+        -38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 5.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar6",
+      "type": "pillar",
+      "name": "騎樓柱 6",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -40.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper7",
+      "type": "building",
+      "name": "騎樓樓上 7",
+      "color": "#cbbfa9",
+      "position": [
+        6,
+        3.6,
+        -32.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 4.95,
+        "floors": 4,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop7",
+      "type": "box",
+      "name": "店面 7",
+      "color": "#71665a",
+      "position": [
+        7.4,
+        0,
+        -32.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 4.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar7",
+      "type": "pillar",
+      "name": "騎樓柱 7",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -34.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper8",
+      "type": "building",
+      "name": "騎樓樓上 8",
+      "color": "#b9b2a4",
+      "position": [
+        6,
+        3.6,
+        -28
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 3.95,
+        "floors": 3,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop8",
+      "type": "box",
+      "name": "店面 8",
+      "color": "#625e58",
+      "position": [
+        7.4,
+        0,
+        -28
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 3.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar8",
+      "type": "pillar",
+      "name": "騎樓柱 8",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -29.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper9",
+      "type": "building",
+      "name": "騎樓樓上 9",
+      "color": "#d3c4a2",
+      "position": [
+        6,
+        3.6,
+        -22.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 6.95,
+        "floors": 2,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop9",
+      "type": "box",
+      "name": "店面 9",
+      "color": "#5a5650",
+      "position": [
+        7.4,
+        0,
+        -22.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 6.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar9",
+      "type": "pillar",
+      "name": "騎樓柱 9",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -25.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper10",
+      "type": "building",
+      "name": "騎樓樓上 10",
+      "color": "#aaa79e",
+      "position": [
+        6,
+        3.6,
+        -16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 5.95,
+        "floors": 4,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop10",
+      "type": "box",
+      "name": "店面 10",
+      "color": "#6b625a",
+      "position": [
+        7.4,
+        0,
+        -16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 5.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar10",
+      "type": "pillar",
+      "name": "騎樓柱 10",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -18.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper11",
+      "type": "building",
+      "name": "騎樓樓上 11",
+      "color": "#c8b59b",
+      "position": [
+        6,
+        3.6,
+        -10.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 4.95,
+        "floors": 3,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop11",
+      "type": "box",
+      "name": "店面 11",
+      "color": "#5d5853",
+      "position": [
+        7.4,
+        0,
+        -10.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 4.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar11",
+      "type": "pillar",
+      "name": "騎樓柱 11",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -12.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper12",
+      "type": "building",
+      "name": "騎樓樓上 12",
+      "color": "#bfb7ab",
+      "position": [
+        6,
+        3.6,
+        -6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 3.95,
+        "floors": 2,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop12",
+      "type": "box",
+      "name": "店面 12",
+      "color": "#71665a",
+      "position": [
+        7.4,
+        0,
+        -6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 3.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar12",
+      "type": "pillar",
+      "name": "騎樓柱 12",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -7.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper13",
+      "type": "building",
+      "name": "騎樓樓上 13",
+      "color": "#d6cbb8",
+      "position": [
+        6,
+        3.6,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 6.95,
+        "floors": 4,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop13",
+      "type": "box",
+      "name": "店面 13",
+      "color": "#625e58",
+      "position": [
+        7.4,
+        0,
+        -0.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 6.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar13",
+      "type": "pillar",
+      "name": "騎樓柱 13",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        -3.75
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper14",
+      "type": "building",
+      "name": "騎樓樓上 14",
+      "color": "#cbbfa9",
+      "position": [
+        6,
+        3.6,
+        6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 5.95,
+        "floors": 3,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop14",
+      "type": "box",
+      "name": "店面 14",
+      "color": "#5a5650",
+      "position": [
+        7.4,
+        0,
+        6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 5.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar14",
+      "type": "pillar",
+      "name": "騎樓柱 14",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        3.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper15",
+      "type": "building",
+      "name": "騎樓樓上 15",
+      "color": "#b9b2a4",
+      "position": [
+        6,
+        3.6,
+        11.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 4.95,
+        "floors": 2,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop15",
+      "type": "box",
+      "name": "店面 15",
+      "color": "#6b625a",
+      "position": [
+        7.4,
+        0,
+        11.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 4.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar15",
+      "type": "pillar",
+      "name": "騎樓柱 15",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        9.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper16",
+      "type": "building",
+      "name": "騎樓樓上 16",
+      "color": "#d3c4a2",
+      "position": [
+        6,
+        3.6,
+        16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 3.95,
+        "floors": 4,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop16",
+      "type": "box",
+      "name": "店面 16",
+      "color": "#5d5853",
+      "position": [
+        7.4,
+        0,
+        16
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 3.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar16",
+      "type": "pillar",
+      "name": "騎樓柱 16",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        14.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper17",
+      "type": "building",
+      "name": "騎樓樓上 17",
+      "color": "#aaa79e",
+      "position": [
+        6,
+        3.6,
+        21.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 6.95,
+        "floors": 3,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop17",
+      "type": "box",
+      "name": "店面 17",
+      "color": "#71665a",
+      "position": [
+        7.4,
+        0,
+        21.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 6.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar17",
+      "type": "pillar",
+      "name": "騎樓柱 17",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        18.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper18",
+      "type": "building",
+      "name": "騎樓樓上 18",
+      "color": "#c8b59b",
+      "position": [
+        6,
+        3.6,
+        28
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 5.95,
+        "floors": 2,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop18",
+      "type": "box",
+      "name": "店面 18",
+      "color": "#625e58",
+      "position": [
+        7.4,
+        0,
+        28
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 5.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar18",
+      "type": "pillar",
+      "name": "騎樓柱 18",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        25.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper19",
+      "type": "building",
+      "name": "騎樓樓上 19",
+      "color": "#bfb7ab",
+      "position": [
+        6,
+        3.6,
+        33.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 4.95,
+        "floors": 4,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop19",
+      "type": "box",
+      "name": "店面 19",
+      "color": "#5a5650",
+      "position": [
+        7.4,
+        0,
+        33.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 4.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar19",
+      "type": "pillar",
+      "name": "騎樓柱 19",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        31.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper20",
+      "type": "building",
+      "name": "騎樓樓上 20",
+      "color": "#d6cbb8",
+      "position": [
+        6,
+        3.6,
+        38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 3.95,
+        "floors": 3,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop20",
+      "type": "box",
+      "name": "店面 20",
+      "color": "#6b625a",
+      "position": [
+        7.4,
+        0,
+        38
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 3.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar20",
+      "type": "pillar",
+      "name": "騎樓柱 20",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        36.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "upper21",
+      "type": "building",
+      "name": "騎樓樓上 21",
+      "color": "#cbbfa9",
+      "position": [
+        6,
+        3.6,
+        43.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 7.8,
+        "depth": 6.95,
+        "floors": 2,
+        "floorHeight": 3.1,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "shop21",
+      "type": "box",
+      "name": "店面 21",
+      "color": "#5d5853",
+      "position": [
+        7.4,
+        0,
+        43.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5,
+        "height": 3.6,
+        "depth": 6.9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pillar21",
+      "type": "pillar",
+      "name": "騎樓柱 21",
+      "color": "#d9d0bf",
+      "position": [
+        2.25,
+        0,
+        40.25
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 3.6,
+        "radius": 0.24,
+        "shape": "square"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far1",
+      "type": "building",
+      "name": "對面街屋 1",
+      "color": "#c8b59b",
+      "position": [
+        -16.5,
+        0,
+        -69
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 6,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far2",
+      "type": "building",
+      "name": "對面街屋 2",
+      "color": "#bfb7ab",
+      "position": [
+        -16.5,
+        0,
+        -63
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 5,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far3",
+      "type": "building",
+      "name": "對面街屋 3",
+      "color": "#d6cbb8",
+      "position": [
+        -16.5,
+        0,
+        -57
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 4,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far4",
+      "type": "building",
+      "name": "對面街屋 4",
+      "color": "#cbbfa9",
+      "position": [
+        -16.5,
+        0,
+        -51
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 3,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far5",
+      "type": "building",
+      "name": "對面街屋 5",
+      "color": "#b9b2a4",
+      "position": [
+        -16.5,
+        0,
+        -45
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 6,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far6",
+      "type": "building",
+      "name": "對面街屋 6",
+      "color": "#d3c4a2",
+      "position": [
+        -16.5,
+        0,
+        -39
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 5,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far7",
+      "type": "building",
+      "name": "對面街屋 7",
+      "color": "#aaa79e",
+      "position": [
+        -16.5,
+        0,
+        -33
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 4,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far8",
+      "type": "building",
+      "name": "對面街屋 8",
+      "color": "#c8b59b",
+      "position": [
+        -16.5,
+        0,
+        -27
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 3,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far9",
+      "type": "building",
+      "name": "對面街屋 9",
+      "color": "#bfb7ab",
+      "position": [
+        -16.5,
+        0,
+        -21
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 6,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far10",
+      "type": "building",
+      "name": "對面街屋 10",
+      "color": "#d6cbb8",
+      "position": [
+        -16.5,
+        0,
+        -15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 5,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far11",
+      "type": "building",
+      "name": "對面街屋 11",
+      "color": "#cbbfa9",
+      "position": [
+        -16.5,
+        0,
+        -9
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 4,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far12",
+      "type": "building",
+      "name": "對面街屋 12",
+      "color": "#b9b2a4",
+      "position": [
+        -16.5,
+        0,
+        -3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 3,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far13",
+      "type": "building",
+      "name": "對面街屋 13",
+      "color": "#d3c4a2",
+      "position": [
+        -16.5,
+        0,
+        3
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 6,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far14",
+      "type": "building",
+      "name": "對面街屋 14",
+      "color": "#aaa79e",
+      "position": [
+        -16.5,
+        0,
+        9
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 5,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far15",
+      "type": "building",
+      "name": "對面街屋 15",
+      "color": "#c8b59b",
+      "position": [
+        -16.5,
+        0,
+        15
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 4,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far16",
+      "type": "building",
+      "name": "對面街屋 16",
+      "color": "#bfb7ab",
+      "position": [
+        -16.5,
+        0,
+        21
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 3,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far17",
+      "type": "building",
+      "name": "對面街屋 17",
+      "color": "#d6cbb8",
+      "position": [
+        -16.5,
+        0,
+        27
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 6,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far18",
+      "type": "building",
+      "name": "對面街屋 18",
+      "color": "#cbbfa9",
+      "position": [
+        -16.5,
+        0,
+        33
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 5,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "far19",
+      "type": "building",
+      "name": "對面街屋 19",
+      "color": "#b9b2a4",
+      "position": [
+        -16.5,
+        0,
+        39
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 8,
+        "depth": 5.9,
+        "floors": 4,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "endBldg",
+      "type": "building",
+      "name": "街底大樓",
+      "color": "#b3b8bd",
+      "position": [
+        -2,
+        0,
+        -96
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 34,
+        "depth": 12,
+        "floors": 9,
+        "floorHeight": 3.2,
+        "roof": "flat",
+        "windows": true
+      },
+      "tracks": {}
+    },
+    {
+      "id": "hwShop",
+      "type": "box",
+      "name": "五金行店面",
+      "color": "#4f5a52",
+      "position": [
+        7.4,
+        0,
+        -30
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 5.02,
+        "height": 3.62,
+        "depth": 5.2
+      },
+      "tracks": {}
+    },
+    {
+      "id": "hwShelf",
+      "type": "box",
+      "name": "五金貨架",
+      "color": "#8a8f94",
+      "position": [
+        4.75,
+        0,
+        -31.6
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 0.5,
+        "height": 1.6,
+        "depth": 1.6
+      },
+      "tracks": {}
+    },
+    {
+      "id": "hwBucketR",
+      "type": "cylinder",
+      "name": "紅水桶",
+      "color": "#c0392b",
+      "position": [
+        4.6,
+        0,
+        -28.7
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "radius": 0.18,
+        "height": 0.32,
+        "sides": 10
+      },
+      "tracks": {}
+    },
+    {
+      "id": "hwBucketB",
+      "type": "cylinder",
+      "name": "藍水桶",
+      "color": "#2f6fb0",
+      "position": [
+        4.6,
+        0.32,
+        -28.7
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "radius": 0.17,
+        "height": 0.3,
+        "sides": 10
+      },
+      "tracks": {}
+    },
+    {
+      "id": "hwBox",
+      "type": "box",
+      "name": "紙箱",
+      "color": "#b08a5a",
+      "position": [
+        4.7,
+        0,
+        -28
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 0.5,
+        "height": 0.45,
+        "depth": 0.5
+      },
+      "tracks": {}
+    },
+    {
+      "id": "hwOwner",
+      "type": "passerby",
+      "name": "五金行老闆（沖地）",
+      "color": "#7a7f86",
+      "position": [
+        3.7,
+        0,
+        -29.8
+      ],
+      "rotation": [
+        0,
+        -110,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 4,
+        "gender": "male",
+        "pose": "point"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "hwWater",
+      "type": "water",
+      "name": "沖地的水",
+      "color": "#8fa6b4",
+      "position": [
+        2.9,
+        0.005,
+        -29.7
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 2.2,
+        "depth": 2.6
+      },
+      "tracks": {
+        "color": {
+          "keys": [
+            {
+              "t": 0,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 0.4,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 0.8,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 1.2000000000000002,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 1.6,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 2,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 2.4000000000000004,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 2.8000000000000003,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 3.2,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 3.6,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 4,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 4.4,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 4.800000000000001,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 5.2,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 5.6000000000000005,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 6,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 6.4,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 6.800000000000001,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 7.2,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 7.6000000000000005,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 8,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 8.4,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 8.8,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 9.200000000000001,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 9.600000000000001,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 10,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 10.4,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 10.8,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 11.200000000000001,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 11.600000000000001,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 12,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 12.4,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 12.8,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 13.200000000000001,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 13.600000000000001,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 14,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 14.4,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            },
+            {
+              "t": 14.8,
+              "v": "#e6eef2",
+              "ease": "linear"
+            },
+            {
+              "t": 15.200000000000001,
+              "v": "#8fa6b4",
+              "ease": "linear"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "she",
+      "type": "female",
+      "name": "她",
+      "color": "#6f8fb0",
+      "position": [
+        0.35,
+        0.02,
+        -3.9400000000000013
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 1.62,
+        "build": "slim",
+        "hair": "long",
+        "outfit": "skirt",
+        "pose": "walk"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                0.35,
+                0.02,
+                -3.94
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.5,
+              "v": [
+                0.35,
+                0.02,
+                2.81
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.6,
+              "v": [
+                0.35,
+                0.02,
+                2.96
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.75,
+              "v": [
+                0.35,
+                0.02,
+                3.185
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.9,
+              "v": [
+                0.35,
+                0.02,
+                3.41
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 8.8,
+              "v": [
+                0.35,
+                0.02,
+                9.26
+              ],
+              "ease": "out"
+            },
+            {
+              "t": 9.3,
+              "v": [
+                0.35,
+                0.02,
+                9.51
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 14.5,
+              "v": [
+                0.35,
+                0.02,
+                9.51
+              ],
+              "ease": "inOut"
+            },
+            {
+              "t": 14.85,
+              "v": [
+                0.375,
+                0.02,
+                9.53
+              ],
+              "ease": "linear"
+            }
+          ]
+        },
+        "rotation": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                0,
+                0,
+                0
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.45,
+              "v": [
+                0,
+                0,
+                0
+              ],
+              "ease": "inOut"
+            },
+            {
+              "t": 4.62,
+              "v": [
+                0,
+                18,
+                0
+              ],
+              "ease": "inOut"
+            },
+            {
+              "t": 5,
+              "v": [
+                0,
+                0,
+                0
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 14.5,
+              "v": [
+                0,
+                0,
+                0
+              ],
+              "ease": "inOut"
+            },
+            {
+              "t": 14.85,
+              "v": [
+                0,
+                -4,
+                0
+              ],
+              "ease": "linear"
+            }
+          ]
+        },
+        "params.pose": {
+          "keys": [
+            {
+              "t": 0,
+              "v": "walk"
+            },
+            {
+              "t": 9.3,
+              "v": "stand"
+            }
+          ]
+        }
+      },
+      "note": "不放慢的步子；托特包先在靠他那側（右肩），CUT2 換到左肩。抿嘴、拇指搓背帶等表演人偶做不出來，見 markers。"
+    },
+    {
+      "id": "tote",
+      "type": "box",
+      "name": "米白托特包",
+      "color": "#efe7d6",
+      "position": [
+        0.10999999999999999,
+        0.8,
+        -3.970000000000001
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 0.3,
+        "height": 0.34,
+        "depth": 0.11
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                0.11,
+                0.8,
+                -3.97
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.5,
+              "v": [
+                0.11,
+                0.8,
+                2.78
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.6,
+              "v": [
+                0.19,
+                0.86,
+                3.08
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.75,
+              "v": [
+                0.37,
+                0.95,
+                3.385
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.9,
+              "v": [
+                0.59,
+                0.8,
+                3.38
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 8.8,
+              "v": [
+                0.59,
+                0.8,
+                9.23
+              ],
+              "ease": "out"
+            },
+            {
+              "t": 9.3,
+              "v": [
+                0.59,
+                0.8,
+                9.48
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 14.5,
+              "v": [
+                0.59,
+                0.8,
+                9.48
+              ],
+              "ease": "inOut"
+            },
+            {
+              "t": 14.85,
+              "v": [
+                0.615,
+                0.8,
+                9.5
+              ],
+              "ease": "linear"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "he",
+      "type": "male",
+      "name": "他",
+      "color": "#e8792b",
+      "position": [
+        -0.35,
+        0.02,
+        -4.290000000000001
+      ],
+      "rotation": [
+        0,
+        15,
+        0
+      ],
+      "scale": [
+        -1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "height": 1.78,
+        "build": "average",
+        "pose": "walk"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -0.35,
+                0.02,
+                -4.29
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 3,
+              "v": [
+                -0.35,
+                0.02,
+                0.21
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 3.9,
+              "v": [
+                -0.25,
+                0.02,
+                1.91
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.5,
+              "v": [
+                -0.22,
+                0.02,
+                2.81
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.6,
+              "v": [
+                -0.236,
+                0.02,
+                2.942
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 5.5,
+              "v": [
+                -0.38,
+                0.02,
+                4.13
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 5.6,
+              "v": [
+                -0.394,
+                0.02,
+                4.256
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 6,
+              "v": [
+                -0.45,
+                0.02,
+                4.76
+              ],
+              "ease": "out"
+            },
+            {
+              "t": 7.2,
+              "v": [
+                -0.45,
+                0.02,
+                5.264
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 9.7,
+              "v": [
+                -0.45,
+                0.02,
+                5.264
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 10.05,
+              "v": [
+                -0.45,
+                0.02,
+                5.264
+              ],
+              "ease": "linear"
+            }
+          ]
+        },
+        "rotation": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                0,
+                15,
+                0
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.6,
+              "v": [
+                0,
+                15,
+                0
+              ],
+              "ease": "inOut"
+            },
+            {
+              "t": 5.6,
+              "v": [
+                0,
+                0,
+                0
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 6,
+              "v": [
+                0,
+                0,
+                0
+              ],
+              "ease": "inOut"
+            },
+            {
+              "t": 7.2,
+              "v": [
+                0,
+                9,
+                0
+              ],
+              "ease": "linear"
+            }
+          ]
+        },
+        "params.pose": {
+          "keys": [
+            {
+              "t": 0,
+              "v": "walk"
+            },
+            {
+              "t": 4,
+              "v": "point"
+            },
+            {
+              "t": 5.5,
+              "v": "walk"
+            },
+            {
+              "t": 7.2,
+              "v": "stand"
+            },
+            {
+              "t": 9.65,
+              "v": "raiseHand"
+            },
+            {
+              "t": 10.05,
+              "v": "stand"
+            }
+          ]
+        }
+      },
+      "note": "橘色花襯衫、七分褲、啪噠響的涼鞋、墨鏡推在頭頂。scale x = −1 只是鏡像，讓勾背帶的手在她那側。"
+    },
+    {
+      "id": "shades",
+      "type": "box",
+      "name": "墨鏡",
+      "color": "#141414",
+      "position": [
+        -0.3305885716173109,
+        1.725,
+        -4.217555563028321
+      ],
+      "rotation": [
+        35,
+        15,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 0.18,
+        "height": 0.045,
+        "depth": 0.05
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -0.331,
+                1.725,
+                -4.218
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 3,
+              "v": [
+                -0.331,
+                1.725,
+                0.282
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 3.9,
+              "v": [
+                -0.231,
+                1.725,
+                1.982
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.5,
+              "v": [
+                -0.201,
+                1.725,
+                2.882
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.6,
+              "v": [
+                -0.217,
+                1.725,
+                3.014
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 5.5,
+              "v": [
+                -0.38,
+                1.725,
+                4.205
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 5.6,
+              "v": [
+                -0.394,
+                1.725,
+                4.331
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 6,
+              "v": [
+                -0.45,
+                1.725,
+                4.835
+              ],
+              "ease": "out"
+            },
+            {
+              "t": 7.2,
+              "v": [
+                -0.438,
+                1.725,
+                5.338
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 9.7,
+              "v": [
+                -0.437,
+                1.71,
+                5.347
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 9.85,
+              "v": [
+                -0.435,
+                1.695,
+                5.356
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 10.05,
+              "v": [
+                -0.435,
+                1.688,
+                5.361
+              ],
+              "ease": "linear"
+            }
+          ]
+        },
+        "rotation": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                35,
+                15,
+                0
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 4.6,
+              "v": [
+                35,
+                15,
+                0
+              ],
+              "ease": "inOut"
+            },
+            {
+              "t": 5.6,
+              "v": [
+                35,
+                0,
+                0
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 6,
+              "v": [
+                35,
+                0,
+                0
+              ],
+              "ease": "inOut"
+            },
+            {
+              "t": 7.2,
+              "v": [
+                35,
+                9,
+                0
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 9.7,
+              "v": [
+                35,
+                9,
+                0
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 9.85,
+              "v": [
+                20,
+                9,
+                0
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 10.05,
+              "v": [
+                0,
+                9,
+                0
+              ],
+              "ease": "linear"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "pbArcade",
+      "type": "passerby",
+      "name": "騎樓下走遠的人",
+      "color": "#9aa4b2",
+      "position": [
+        3.5,
+        0.02,
+        -13
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 11,
+        "gender": "female",
+        "pose": "walk"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                3.5,
+                0.02,
+                -13
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 15,
+              "v": [
+                3.5,
+                0.02,
+                -30.25
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "pbBehind",
+      "type": "passerby",
+      "name": "後方同向行人",
+      "color": "#9aa4b2",
+      "position": [
+        -1.15,
+        0.02,
+        -36
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 23,
+        "gender": "male",
+        "pose": "walk"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -1.15,
+                0.02,
+                -36
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 15,
+              "v": [
+                -1.15,
+                0.02,
+                -21
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "pbFar1",
+      "type": "passerby",
+      "name": "遠處行人",
+      "color": "#9aa4b2",
+      "position": [
+        0.9,
+        0.02,
+        -44
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 31,
+        "gender": "auto",
+        "pose": "walk"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                0.9,
+                0.02,
+                -44
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 15,
+              "v": [
+                0.9,
+                0.02,
+                -26
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "pbFar2",
+      "type": "passerby",
+      "name": "對面行人",
+      "color": "#9aa4b2",
+      "position": [
+        -11,
+        0.02,
+        -30
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 8,
+        "gender": "auto",
+        "pose": "walk"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -11,
+                0.02,
+                -30
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 15,
+              "v": [
+                -11,
+                0.02,
+                -11.25
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "pbFar3",
+      "type": "passerby",
+      "name": "對面行人",
+      "color": "#9aa4b2",
+      "position": [
+        -10.6,
+        0.02,
+        5
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 17,
+        "gender": "auto",
+        "pose": "walk"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                -10.6,
+                0.02,
+                5
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 15,
+              "v": [
+                -10.6,
+                0.02,
+                -13
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "pbPhone",
+      "type": "passerby",
+      "name": "騎樓下講電話",
+      "color": "#9aa4b2",
+      "position": [
+        3.9,
+        0,
+        -44
+      ],
+      "rotation": [
+        0,
+        -70,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 5,
+        "gender": "female",
+        "pose": "phone"
+      },
+      "tracks": {}
+    },
+    {
+      "id": "crowdFar",
+      "type": "crowd",
+      "name": "街底人潮",
+      "color": "#9aa4b2",
+      "position": [
+        1.5,
+        0,
+        -58
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "count": 14,
+        "width": 6,
+        "depth": 14,
+        "pose": "walk",
+        "facing": "random",
+        "colorVariation": 0.6,
+        "seed": 9
+      },
+      "tracks": {}
+    },
+    {
+      "id": "pcDown",
+      "type": "passerby",
+      "name": "從她身旁往北走",
+      "color": "#9aa4b2",
+      "position": [
+        1.1,
+        0.02,
+        24.875
+      ],
+      "rotation": [
+        0,
+        180,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 41,
+        "gender": "male",
+        "pose": "walk"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 0,
+              "v": [
+                1.1,
+                0.02,
+                24.875
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 15,
+              "v": [
+                1.1,
+                0.02,
+                6.125
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "pcBehind",
+      "type": "passerby",
+      "name": "從他身後橫穿",
+      "color": "#9aa4b2",
+      "position": [
+        -1.65,
+        0.02,
+        2.8639999999999994
+      ],
+      "rotation": [
+        0,
+        81,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 52,
+        "gender": "female",
+        "pose": "phone"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 8.3,
+              "v": [
+                -1.65,
+                0.02,
+                2.864
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 11.4,
+              "v": [
+                3,
+                0.02,
+                3.664
+              ]
+            }
+          ]
+        },
+        "params.pose": {
+          "keys": [
+            {
+              "t": 0,
+              "v": "phone"
+            },
+            {
+              "t": 8.3,
+              "v": "walk"
+            },
+            {
+              "t": 11.4,
+              "v": "stand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "pcCross",
+      "type": "passerby",
+      "name": "從兩人中間橫穿",
+      "color": "#9aa4b2",
+      "position": [
+        3,
+        0.02,
+        7.6
+      ],
+      "rotation": [
+        0,
+        -101,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 77,
+        "gender": "female",
+        "pose": "stand"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 9.4,
+              "v": [
+                3,
+                0.02,
+                7.6
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 13.25,
+              "v": [
+                -2.3,
+                0.02,
+                6.6
+              ]
+            }
+          ]
+        },
+        "params.pose": {
+          "keys": [
+            {
+              "t": 0,
+              "v": "stand"
+            },
+            {
+              "t": 9.4,
+              "v": "walk"
+            },
+            {
+              "t": 13.25,
+              "v": "stand"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "scooterBody",
+      "type": "box",
+      "name": "機車",
+      "color": "#2c4f7c",
+      "position": [
+        -4.4,
+        0.18,
+        -22
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "width": 0.55,
+        "height": 0.62,
+        "depth": 1.7
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 10.6,
+              "v": [
+                -4.4,
+                0.18,
+                -15
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 13,
+              "v": [
+                -4.4,
+                0.18,
+                15
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "scooterWheelF",
+      "type": "cylinder",
+      "name": "機車前輪",
+      "color": "#1e1e1e",
+      "position": [
+        -4.4,
+        0,
+        -21.35
+      ],
+      "rotation": [
+        0,
+        0,
+        90
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "radius": 0.22,
+        "height": 0.12,
+        "sides": 12
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 10.6,
+              "v": [
+                -4.4,
+                0.22,
+                -14.35
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 13,
+              "v": [
+                -4.4,
+                0.22,
+                15.65
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "scooterWheelR",
+      "type": "cylinder",
+      "name": "機車後輪",
+      "color": "#1e1e1e",
+      "position": [
+        -4.4,
+        0,
+        -22.6
+      ],
+      "rotation": [
+        0,
+        0,
+        90
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "radius": 0.22,
+        "height": 0.12,
+        "sides": 12
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 10.6,
+              "v": [
+                -4.4,
+                0.22,
+                -15.6
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 13,
+              "v": [
+                -4.4,
+                0.22,
+                14.4
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "scooterRider",
+      "type": "passerby",
+      "name": "騎士",
+      "color": "#9aa4b2",
+      "position": [
+        -4.4,
+        0.36,
+        -22.2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {
+        "seed": 63,
+        "gender": "male",
+        "pose": "sit"
+      },
+      "tracks": {
+        "position": {
+          "keys": [
+            {
+              "t": 10.6,
+              "v": [
+                -4.4,
+                0.36,
+                -15.2
+              ],
+              "ease": "linear"
+            },
+            {
+              "t": 13,
+              "v": [
+                -4.4,
+                0.36,
+                14.8
+              ]
+            }
+          ]
+        }
+      }
+    },
+    {
+      "id": "cut1",
+      "type": "camera",
+      "name": "CUT1 倒退跟拍 中全景",
+      "color": "#f0b429",
+      "position": [
+        0,
+        1.57,
+        -3.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {},
+      "camera": {
+        "rig": "dolly",
+        "lens": "standard",
+        "focalLength": 60,
+        "sensor": "super35",
+        "fisheye": {
+          "fov": 180,
+          "mapping": "equidistant",
+          "circular": false
+        },
+        "lookAt": {
+          "target": "she",
+          "point": null,
+          "aim": "feet",
+          "offset": [
+            -0.35,
+            1.22,
+            -0.17
+          ]
+        },
+        "follow": {
+          "target": "she",
+          "offset": [
+            -0.35,
+            1.55,
+            6.6
+          ],
+          "space": "world",
+          "lag": 0.2
+        },
+        "shake": {
+          "preset": "walk",
+          "amount": 0.2,
+          "seed": 3
+        }
+      },
+      "tracks": {}
+    },
+    {
+      "id": "cut2",
+      "type": "camera",
+      "name": "CUT2 長拍 跟著她走",
+      "color": "#f0b429",
+      "position": [
+        0,
+        1.57,
+        2
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {},
+      "camera": {
+        "rig": "dolly",
+        "lens": "standard",
+        "focalLength": 85,
+        "sensor": "super35",
+        "fisheye": {
+          "fov": 180,
+          "mapping": "equidistant",
+          "circular": false
+        },
+        "lookAt": {
+          "target": "she",
+          "point": null,
+          "aim": "feet",
+          "offset": [
+            -0.35,
+            1.38,
+            -0.08
+          ]
+        },
+        "follow": {
+          "target": "she",
+          "offset": [
+            -0.35,
+            1.55,
+            6.3
+          ],
+          "space": "world",
+          "lag": 0.25
+        },
+        "shake": {
+          "preset": "walk",
+          "amount": 0.2,
+          "seed": 5
+        }
+      },
+      "tracks": {}
+    },
+    {
+      "id": "cut3",
+      "type": "camera",
+      "name": "CUT3 她肩旁反打 他 中全景（固定）",
+      "color": "#f0b429",
+      "position": [
+        0.2,
+        1.45,
+        11.5
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {},
+      "camera": {
+        "rig": "tripod",
+        "lens": "standard",
+        "focalLength": 63.2,
+        "sensor": "super35",
+        "fisheye": {
+          "fov": 180,
+          "mapping": "equidistant",
+          "circular": false
+        },
+        "lookAt": {
+          "target": "he",
+          "point": null,
+          "aim": "feet",
+          "offset": [
+            0,
+            1.193,
+            0
+          ]
+        },
+        "follow": null,
+        "shake": {
+          "preset": "none",
+          "amount": 0.5,
+          "seed": 1
+        }
+      },
+      "tracks": {}
+    },
+    {
+      "id": "cut4",
+      "type": "camera",
+      "name": "CUT4 她的臉 中近景（固定）",
+      "color": "#f0b429",
+      "position": [
+        0.62,
+        1.53,
+        13.67
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "visible": true,
+      "locked": false,
+      "params": {},
+      "camera": {
+        "rig": "tripod",
+        "lens": "standard",
+        "focalLength": 100,
+        "sensor": "super35",
+        "fisheye": {
+          "fov": 180,
+          "mapping": "equidistant",
+          "circular": false
+        },
+        "lookAt": {
+          "target": "she",
+          "point": null,
+          "aim": "feet",
+          "offset": [
+            0,
+            1.393,
+            0
+          ]
+        },
+        "follow": null,
+        "shake": {
+          "preset": "none",
+          "amount": 0.5,
+          "seed": 1
+        }
+      },
+      "tracks": {}
+    }
+  ],
+  "cuts": [
+    {
+      "t": 0,
+      "camera": "cut1"
+    },
+    {
+      "t": 3,
+      "camera": "cut2"
+    },
+    {
+      "t": 9.6,
+      "camera": "cut3"
+    },
+    {
+      "t": 12.7,
+      "camera": "cut4"
+    }
+  ],
+  "markers": [
+    {
+      "t": 0.2,
+      "label": "男：「欸，走慢一點啦，我穿拖鞋欸。」（涼鞋啪噠啪噠）"
+    },
+    {
+      "t": 3,
+      "label": "CUT2 長拍開始"
+    },
+    {
+      "t": 3.6,
+      "label": "男：「那個……你上次講那家，叫什麼？去吃啊。」"
+    },
+    {
+      "t": 4,
+      "label": "他勾住背帶"
+    },
+    {
+      "t": 4.5,
+      "label": "她肩膀一轉，換肩，手壓背帶"
+    },
+    {
+      "t": 5.45,
+      "label": "他的手停一拍才垂下"
+    },
+    {
+      "t": 6,
+      "label": "他慢下來"
+    },
+    {
+      "t": 7.2,
+      "label": "他停住：啪噠聲斷"
+    },
+    {
+      "t": 8.8,
+      "label": "她第三步短了一截"
+    },
+    {
+      "t": 9.3,
+      "label": "她停下（沒回頭）→ 鏡頭煞住"
+    },
+    {
+      "t": 9.6,
+      "label": "CUT3 第一顆靜止鏡頭"
+    },
+    {
+      "t": 9.7,
+      "label": "墨鏡往下一撥"
+    },
+    {
+      "t": 10.2,
+      "label": "雙手插進口袋"
+    },
+    {
+      "t": 10.4,
+      "label": "男：「你夠了喔。」（平，不挑不壓）"
+    },
+    {
+      "t": 12.7,
+      "label": "CUT4 她的臉：抿嘴、吸氣、拇指搓背帶"
+    },
+    {
+      "t": 14.5,
+      "label": "重心動了一下 → 切"
+    }
+  ]
+}

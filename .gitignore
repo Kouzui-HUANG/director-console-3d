@@ -1,0 +1,9 @@
+node_modules/
+dist/
+exports/
+.director3d/
+*.log
+.DS_Store
+# Generated macOS launcher (npm run mac-app); machine-specific
+/*.app/
+.skill-workspaces/

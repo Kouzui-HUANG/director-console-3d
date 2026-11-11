@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <!-- 3D 導演台 app icon: clapperboard sticks over a camera viewfinder framing a low-poly cube, with a REC light. -->
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#2d333c"/>
+      <stop offset="1" stop-color="#13161a"/>
+    </linearGradient>
+    <pattern id="stripes" width="104" height="104" patternUnits="userSpaceOnUse" patternTransform="rotate(-40)">
+      <rect width="52" height="104" fill="#eef1f5"/>
+    </pattern>
+    <clipPath id="body">
+      <rect x="100" y="100" width="824" height="824" rx="184"/>
+    </clipPath>
+    <filter id="drop" x="-10%" y="-10%" width="120%" height="125%">
+      <feDropShadow dx="0" dy="14" stdDeviation="16" flood-color="#000" flood-opacity="0.38"/>
+    </filter>
+    <filter id="soft" x="-50%" y="-200%" width="200%" height="500%">
+      <feGaussianBlur stdDeviation="14"/>
+    </filter>
+    <filter id="glow" x="-100%" y="-100%" width="300%" height="300%">
+      <feGaussianBlur stdDeviation="12"/>
+    </filter>
+  </defs>
+
+  <g filter="url(#drop)">
+    <rect x="100" y="100" width="824" height="824" rx="184" fill="url(#bg)"/>
+  </g>
+
+  <g clip-path="url(#body)">
+    <!-- Clapper: moving stick (open), hinge, fixed stick -->
+    <g transform="rotate(-8 122 300)">
+      <rect x="96" y="226" width="880" height="74" fill="#17191d"/>
+      <rect x="96" y="226" width="880" height="74" fill="url(#stripes)"/>
+      <rect x="96" y="226" width="880" height="5" fill="#ffffff" opacity="0.18"/>
+    </g>
+    <rect x="96" y="306" width="840" height="74" fill="#17191d"/>
+    <rect x="96" y="306" width="840" height="74" fill="url(#stripes)"/>
+    <rect x="96" y="306" width="840" height="5" fill="#ffffff" opacity="0.18"/>
+    <rect x="96" y="380" width="840" height="6" fill="#000000" opacity="0.35"/>
+    <circle cx="136" cy="303" r="17" fill="#d7dbe0"/>
+    <circle cx="136" cy="303" r="6" fill="#6b727c"/>
+
+    <!-- Viewfinder corner brackets -->
+    <g fill="none" stroke="#e9edf2" stroke-width="20" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M196 500 V440 H256"/>
+      <path d="M768 440 H828 V500"/>
+      <path d="M196 806 V866 H256"/>
+      <path d="M768 866 H828 V806"/>
+    </g>
+
+    <!-- REC light -->
+    <circle cx="270" cy="510" r="34" fill="#ff4d4d" opacity="0.55" filter="url(#glow)"/>
+    <circle cx="270" cy="510" r="22" fill="#ff4d4d"/>
+
+    <!-- Low-poly cube on the stage -->
+    <ellipse cx="512" cy="838" rx="196" ry="30" fill="#000000" opacity="0.5" filter="url(#soft)"/>
+    <polygon points="512,496 655,578 512,660" fill="#ffe680"/>
+    <polygon points="512,496 512,660 369,578" fill="#ffd23f"/>
+    <polygon points="369,578 512,660 369,743" fill="#f2b705"/>
+    <polygon points="512,660 512,825 369,743" fill="#dda200"/>
+    <polygon points="512,660 655,578 655,743" fill="#c58c00"/>
+    <polygon points="512,660 655,743 512,825" fill="#a97700"/>
+  </g>
+
+  <!-- Subtle rim light on the body -->
+  <rect x="101.5" y="101.5" width="821" height="821" rx="183" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="3"/>
+</svg>
