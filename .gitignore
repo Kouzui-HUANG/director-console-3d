@@ -7,3 +7,8 @@ exports/
 # Generated macOS launcher (npm run mac-app); machine-specific
 /*.app/
 .skill-workspaces/
+# Third-party source data downloaded by scripts (MakeHuman CC0 assets)
+vendor/
+# The portrait library is personal data (parameter files, reference photos of real people,
+# deleted copies): kept local; the server creates the folder
+portraits/

@@ -66,6 +66,9 @@ export function Toolbar() {
       <button aria-label="指令主控台" className={consoleOpen ? 'on' : ''} title="指令主控台：查看與執行 JSON 指令 (⌘K)" onClick={() => app.ui.setState({ consoleOpen: !consoleOpen })}>
         {'{ }'} 指令
       </button>
+      <a className="entry-link" href="/portrait" target="_blank" rel="noopener" aria-label="人像工作室" title="人像工作室：用參數做寫實的人像白模（開新分頁）">
+        🗿 人像
+      </a>
       <button aria-label="效能與顯示設定" title="效能與顯示設定" onClick={() => app.openDialog('settings')}>
         ⚙
       </button>

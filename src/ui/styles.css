@@ -301,3 +301,7 @@ kbd { background: var(--panel3); border: 1px solid var(--line2); border-radius: 
   .main { grid-template-columns: 200px minmax(280px, 1fr) 280px; }
   .console { right: 16px; }
 }
+
+/* entry to the portrait studio (opens portrait.html in a new tab) */
+.toolbar .entry-link { display: inline-flex; align-items: center; padding: 3px 9px; border: 1px solid var(--line2); border-radius: var(--radius); color: var(--text); text-decoration: none; font-size: 13px; white-space: nowrap; }
+.toolbar .entry-link:hover { border-color: var(--accent, #ffb020); }
