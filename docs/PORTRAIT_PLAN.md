@@ -667,7 +667,7 @@ tests/portrait/
 ### 三視圖輸出（2026-11-25）
 
 - 使用者要求：每個人像最後都要輸出一張「正面／半側／側面」三視圖（依使用者提供的參考版型）。
-- `portrait_export {format: "png"}` 不給 `views` 時改輸出三視圖：正面、左 3/4、左側，三格 640 × 1080 拼成 1920 × 1080（`scale: 2` → 3840 × 2160），頭肩取景（瞄準點在 headCenter 下方 58 mm、後方 24 mm，半徑 0.115 m，都乘頭部縮放），左上角圓角標籤、格間細分隔線，存成 `exports/portraits/<名稱>_三視圖.png`。給 `views` 或 `layout: "sheet"` 仍是舊的帶標題多角度圖。
+- `portrait_export {format: "png"}` 不給 `views` 時改輸出三視圖：正面、左 3/4、左側，三格 640 × 1080 拼成 1920 × 1080（`scale: 2` → 3840 × 2160），頭肩取景（瞄準點在 headCenter 下方 36 mm、後方 24 mm，半徑 0.115 m，都乘頭部縮放；頭頂上方留白約 9.5 %，原本 58 mm／4 % 使用者覺得太擠），左上角圓角標籤、格間細分隔線，存成 `exports/portraits/<名稱>_三視圖.png`。給 `views` 或 `layout: "sheet"` 仍是舊的帶標題多角度圖。
 - 程式：`viewer.labelledSheet`、`studio.turnaroundSheet / exportTurnaround`、`TURNAROUND`（render/viewer.ts）；工作室「輸出」對話框的主按鈕也改成這個版型。
 - 第一張：`exports/portraits/馬尾女生・胸像（參考照）_三視圖.png`（pt_544x2e530y）。
 
