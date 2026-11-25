@@ -595,9 +595,10 @@ export class PortraitStudio {
     if (!v || !m) return null;
     const hs = m.solve.headScale * m.solve.scale;
     const c = m.headCenter;
-    // headCenter sits halfway between crown and chin: aim lower so the crown lands near the top, and a
-    // little further back so the profile (nose to back of the skull) is centred in its cell.
-    const target: [number, number, number] = [c[0] / 1000, (c[1] - 58 * hs) / 1000, (c[2] - 24 * hs) / 1000];
+    // headCenter sits halfway between crown and chin: aim lower so the head sits in the upper part with
+    // about 9 % headroom above the crown, and a little further back so the profile (nose to back of
+    // the skull) is centred in its cell.
+    const target: [number, number, number] = [c[0] / 1000, (c[1] - 36 * hs) / 1000, (c[2] - 24 * hs) / 1000];
     const views = TURNAROUND.map((t) => ({ view: t.view, label: t.label }));
     return v.labelledSheet(views, Math.round(640 * scale), Math.round(1080 * scale), target, 0.115 * hs);
   }
