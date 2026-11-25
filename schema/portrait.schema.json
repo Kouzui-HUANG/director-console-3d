@@ -1,0 +1,162 @@
+{
+  "$id": "director3d.portrait.schema.json",
+  "title": "人像工作室 portrait",
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "$schema": {
+      "type": "string"
+    },
+    "format": {
+      "type": "string",
+      "const": "director3d.portrait"
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "maximum": 9007199254740991
+    },
+    "id": {
+      "type": "string",
+      "pattern": "^pt_[a-z0-9]{6,16}$"
+    },
+    "name": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 120
+    },
+    "preset": {
+      "default": null,
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "params": {
+      "default": {},
+      "type": "object",
+      "propertyNames": {
+        "type": "string"
+      },
+      "additionalProperties": {
+        "type": [
+          "number",
+          "null"
+        ]
+      }
+    },
+    "framing": {
+      "default": {
+        "type": "bust",
+        "cut": "flat",
+        "pedestal": "none",
+        "heightMm": null
+      },
+      "type": "object",
+      "properties": {
+        "type": {
+          "default": "bust",
+          "description": "head | bust | half | full",
+          "type": "string",
+          "enum": [
+            "head",
+            "bust",
+            "half",
+            "full"
+          ]
+        },
+        "cut": {
+          "default": "flat",
+          "type": "string",
+          "enum": [
+            "flat",
+            "rounded"
+          ]
+        },
+        "pedestal": {
+          "default": "none",
+          "type": "string",
+          "enum": [
+            "none",
+            "round",
+            "square",
+            "socle"
+          ]
+        },
+        "heightMm": {
+          "default": null,
+          "anyOf": [
+            {
+              "type": "number",
+              "exclusiveMinimum": 0,
+              "maximum": 5000
+            },
+            {
+              "type": "null"
+            }
+          ]
+        }
+      }
+    },
+    "references": {
+      "default": [],
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "file": {
+            "type": "string",
+            "minLength": 1
+          },
+          "note": {
+            "default": "",
+            "type": "string"
+          },
+          "focal35": {
+            "default": null,
+            "anyOf": [
+              {
+                "type": "number",
+                "exclusiveMinimum": 0,
+                "maximum": 2000
+              },
+              {
+                "type": "null"
+              }
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "file"
+        ]
+      }
+    },
+    "notes": {
+      "default": "",
+      "type": "string"
+    },
+    "revision": {
+      "default": 0,
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 9007199254740991
+    },
+    "createdAt": {
+      "type": "string"
+    },
+    "updatedAt": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "format",
+    "version",
+    "id",
+    "name"
+  ]
+}

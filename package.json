@@ -18,9 +18,11 @@
     "test:watch": "vitest",
     "schema": "node scripts/gen-schema.ts",
     "mcp": "node server/mcp.ts",
+    "mcp:portrait": "node server/portrait-mcp.ts",
     "mac-app": "bash scripts/make-mac-app.sh"
   },
   "dependencies": {
+    "@mediapipe/tasks-vision": "1.2.0",
     "@modelcontextprotocol/sdk": "^1.32.2",
     "immer": "^11.2.9",
     "mediabunny": "^1.65.2",

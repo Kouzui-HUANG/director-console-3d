@@ -3,6 +3,10 @@
     "director3d": {
       "command": "node",
       "args": ["server/mcp.ts"]
+    },
+    "portrait3d": {
+      "command": "node",
+      "args": ["server/portrait-mcp.ts"]
     }
   }
 }

@@ -4,92 +4,14 @@
  * Configure in Claude Code via .mcp.json (included), or Claude Desktop:
  *   { "mcpServers": { "director3d": { "command": "node", "args": ["<repo>/server/mcp.ts"] } } }
  */
-import { spawn } from 'node:child_process';
-import { existsSync, readFileSync } from 'node:fs';
-import path from 'node:path';
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js';
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
 import { z } from 'zod';
+import { ADDS_FILE, api, EDITS_DOCUMENT, ensureServer as ensureServerWith, ensureTab as ensureTabOf, fail, guideText, imageOf, makeLog, READ_ONLY, sleep, SWITCHES_DOCUMENT, text } from './mcp-common.ts';
 
-const ROOT = path.resolve(import.meta.dirname, '..');
-const STATE = path.join(path.resolve(process.env.DIRECTOR_DATA ?? ROOT), '.director3d');
-const PORT = Number(process.env.DIRECTOR_PORT ?? 5178);
-const BASE = `http://127.0.0.1:${PORT}`;
-
-function log(...a: unknown[]) {
-  console.error('[director3d-mcp]', ...a);
-}
-
-function token(): string {
-  const f = path.join(STATE, 'token');
-  return existsSync(f) ? readFileSync(f, 'utf8').trim() : '';
-}
-
-async function api<T = unknown>(p: string, init: RequestInit = {}): Promise<T> {
-  const res = await fetch(`${BASE}${p}`, {
-    ...init,
-    headers: { 'content-type': 'application/json', 'x-director-token': token(), ...(init.headers ?? {}) },
-  });
-  const data = (await res.json().catch(() => ({}))) as { ok?: boolean; error?: { code: string; message: string; hint?: string } } & Record<string, unknown>;
-  if (!res.ok || data.ok === false) {
-    const e = data.error;
-    throw new Error(e ? `${e.code}: ${e.message}${e.hint ? ` (hint: ${e.hint})` : ''}` : `HTTP ${res.status}`);
-  }
-  return data as T;
-}
-
-async function healthy(): Promise<{ tabs: number; currentProject: string | null } | null> {
-  try {
-    return await api<{ tabs: number; currentProject: string | null }>('/api/health');
-  } catch {
-    return null;
-  }
-}
-
-const sleep = (ms: number) => new Promise((r) => setTimeout(r, ms));
-
-async function ensureServer(): Promise<void> {
-  if (await healthy()) return;
-  log('starting companion server…');
-  const dev = !existsSync(path.join(ROOT, 'dist', 'index.html'));
-  const child = spawn(process.execPath, [path.join(ROOT, 'server', 'index.ts'), ...(dev ? ['--dev'] : [])], { cwd: ROOT, detached: true, stdio: 'ignore' });
-  child.unref();
-  for (let i = 0; i < 80; i++) {
-    await sleep(250);
-    if (await healthy()) return;
-  }
-  throw new Error(`could not start the companion server on ${BASE} (run "npm run dev" in ${ROOT} and try again)`);
-}
-
-function openBrowser(url: string) {
-  const cmd = process.platform === 'darwin' ? 'open' : process.platform === 'win32' ? 'cmd' : 'xdg-open';
-  const args =
-    process.platform === 'darwin'
-      ? existsSync('/Applications/Google Chrome.app')
-        ? ['-a', 'Google Chrome', url]
-        : [url]
-      : process.platform === 'win32'
-        ? ['/c', 'start', '', url]
-        : [url];
-  spawn(cmd, args, { detached: true, stdio: 'ignore' }).unref();
-}
-
-async function ensureTab(): Promise<void> {
-  await ensureServer();
-  const h = await healthy();
-  if (h && h.tabs > 0) return;
-  log('opening the app in the browser…');
-  openBrowser(`${BASE}/${h?.currentProject ? `?project=${encodeURIComponent(h.currentProject)}` : ''}`);
-  for (let i = 0; i < 120; i++) {
-    await sleep(250);
-    const s = await healthy();
-    if (s && s.tabs > 0) {
-      await sleep(800);
-      return;
-    }
-  }
-  throw new Error(`no browser tab connected; open ${BASE}/ in Chrome and retry`);
-}
+const log = makeLog('director3d-mcp');
+const ensureServer = () => ensureServerWith(log);
+const ensureTab = () => ensureTabOf('director', log);
 
 async function rpc<T = unknown>(method: string, params: Record<string, unknown> = {}, needsTab = false): Promise<T> {
   if (needsTab) await ensureTab();
@@ -98,26 +20,12 @@ async function rpc<T = unknown>(method: string, params: Record<string, unknown> 
   return r.result;
 }
 
-// Compact JSON: indentation costs agents tokens and adds nothing for a model.
-const text = (v: unknown) => ({ content: [{ type: 'text' as const, text: typeof v === 'string' ? v : JSON.stringify(v) }] });
-const imageOf = (dataUrl: string, info: unknown) => {
-  const [head, b64] = dataUrl.split(',');
-  const mimeType = /data:(.*?);/.exec(head ?? '')?.[1] ?? 'image/jpeg';
-  return { content: [{ type: 'image' as const, data: b64 ?? '', mimeType }, { type: 'text' as const, text: JSON.stringify(info) }] };
-};
-const fail = (e: unknown) => ({ content: [{ type: 'text' as const, text: `Error: ${e instanceof Error ? e.message : String(e)}` }], isError: true });
-
 const server = new McpServer({ name: 'director3d', version: '0.1.0' });
 
 const CommandSchema = z.object({ cmd: z.string(), args: z.record(z.string(), z.unknown()).optional() });
 
-// Tool annotations let MCP clients (e.g. Claude Code) auto-approve read-only tools.
-// Everything here is local (127.0.0.1), so openWorldHint is false. snapshot / storyboard may open
-// the app in Chrome but never change the project, so they count as read-only.
-const READ_ONLY = { readOnlyHint: true, openWorldHint: false } as const;
-const EDITS_SCENE = { readOnlyHint: false, destructiveHint: true, idempotentHint: false, openWorldHint: false } as const;
-const ADDS_FILE = { readOnlyHint: false, destructiveHint: false, idempotentHint: false, openWorldHint: false } as const;
-const SWITCHES_PROJECT = { readOnlyHint: false, destructiveHint: false, idempotentHint: true, openWorldHint: false } as const;
+const EDITS_SCENE = EDITS_DOCUMENT;
+const SWITCHES_PROJECT = SWITCHES_DOCUMENT;
 
 interface AssetTypeInfo {
   type: string;
@@ -136,10 +44,7 @@ server.registerTool(
   },
   async ({ topic }) => {
     try {
-      const guide = readFileSync(path.join(ROOT, 'AGENTS.md'), 'utf8');
-      if (!topic) return text(guide);
-      const parts = guide.split(/\n(?=## )/).filter((p) => p.toLowerCase().includes(topic.toLowerCase()));
-      return text(parts.length ? parts.join('\n') : guide);
+      return text(guideText('AGENTS.md', topic));
     } catch (e) {
       return fail(e);
     }

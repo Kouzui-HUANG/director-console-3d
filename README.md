@@ -110,6 +110,16 @@ curl -s -X POST http://127.0.0.1:5178/api/rpc -H "content-type: application/json
 
 `projects/<id>.json` 是可讀的 JSON，附 JSON Schema（`schema/project.schema.json`）。存檔後，開著的導演台會即時重載，這次修改也會成為一個可復原的步驟。格式有錯時不會套用，畫面會提示錯誤位置。
 
+## 人像工作室（開發中）
+
+同一個 App 裡另一個獨立頁面：用參數做寫實的人像白模（頭像、胸像、半身像、全身像），底模是 MakeHuman 的 CC0 資料；眉毛是刻在皮膚上的浮雕（眉形、濃淡、毛流都可調）。開啟 <http://127.0.0.1:5178/portrait>，或按導演台工具列的「🗿 人像」。
+
+- 人像存在 `portraits/<id>.json`（沒有伺服器時存在瀏覽器）；格式見 `schema/portrait.schema.json`。
+- AI 用 MCP 伺服器 `portrait3d`（已寫在 `.mcp.json`），指南是 [PORTRAIT_AGENTS.md](PORTRAIT_AGENTS.md)；HTTP 是 `POST /api/portrait-rpc`。
+- 參考照片：左側「參考照片」加入照片（或拖進視窗）→「比對」看照片與人像疊合、特徵點和比例差異 →「自動擬合」。照片只在瀏覽器裡用 MediaPipe 分析（`@mediapipe/tasks-vision` 與 `public/portrait/mediapipe/face_landmarker.task`），存在 `portraits/refs/<id>/`（不進 git）。
+- 第一次使用要先轉檔 MakeHuman 資料：`node scripts/portrait-mh-convert.ts vendor/makehuman/makehuman/data public/portrait/mh`（若 `public/portrait/mh/` 已存在就不用）。
+- 進度與設計：[docs/PORTRAIT_PLAN.md](docs/PORTRAIT_PLAN.md)
+
 ## 檔案位置
 
 | 路徑 | 內容 |
@@ -148,10 +158,15 @@ npm run typecheck
 node scripts/mcp-smoke.ts
 ```
 
+```bash
+node scripts/portrait-mcp-smoke.ts
+```
+
 - `src/core/`：純邏輯（不碰 DOM），包含資料格式、指令、復原、時間求值、鏡頭數學、構圖、運鏡。網頁、伺服器與測試共用。
 - `src/assets/`：低多邊形物件的程式建模。
 - `src/render/`：Three.js 繪製、攝影機與特殊鏡頭、編輯輔助、離線算圖。
 - `src/ui/`：React 介面（繁體中文）。
 - `src/agent/`：`window.director` 與 WebSocket 橋接。
-- `server/`：本機伴隨伺服器（`index.ts`）與 MCP（`mcp.ts`）。
+- `server/`：本機伴隨伺服器（`index.ts`）與 MCP（導演台 `mcp.ts`、人像 `portrait-mcp.ts`、共用 `mcp-common.ts`）。
+- `src/portrait/`：人像工作室（引擎、參數、指令、介面、Agent API）。
 - 設計文件：[docs/PLAN.md](docs/PLAN.md)

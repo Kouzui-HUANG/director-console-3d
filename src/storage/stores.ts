@@ -5,6 +5,9 @@
  */
 import { serializeProject } from '../core/project.ts';
 import type { Project } from '../core/schema.ts';
+import { api } from './server.ts';
+
+export { api, detectServer, serverToken } from './server.ts';
 
 export interface ProjectMeta {
   id: string;
@@ -112,22 +115,6 @@ export class BrowserStore implements ProjectStore {
 // Companion server
 // ---------------------------------------------------------------------------
 
-export function serverToken(): string | null {
-  return document.querySelector<HTMLMetaElement>('meta[name="director3d-token"]')?.content || null;
-}
-
-export async function api<T>(path: string, init: RequestInit = {}): Promise<T> {
-  const token = serverToken();
-  const res = await fetch(path, {
-    ...init,
-    headers: { 'content-type': 'application/json', ...(token ? { 'x-director-token': token } : {}), ...(init.headers ?? {}) },
-  });
-  const text = await res.text();
-  const data = text ? JSON.parse(text) : null;
-  if (!res.ok) throw new Error(data?.error?.message ?? data?.error ?? `HTTP ${res.status}`);
-  return data as T;
-}
-
 export class ServerStore implements ProjectStore {
   kind = 'server' as const;
   label = '本機資料夾（projects/）';
@@ -146,14 +133,5 @@ export class ServerStore implements ProjectStore {
   }
   async remove(id: string): Promise<void> {
     await api(`/api/projects/${encodeURIComponent(id)}`, { method: 'DELETE' });
-  }
-}
-
-export async function detectServer(): Promise<{ ok: boolean; version?: string; root?: string }> {
-  if (!serverToken()) return { ok: false };
-  try {
-    return await api<{ ok: boolean; version: string; root: string }>('/api/health');
-  } catch {
-    return { ok: false };
   }
 }

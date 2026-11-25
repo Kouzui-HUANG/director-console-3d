@@ -1,10 +1,11 @@
 /** Integration test: starts the companion server on a temp data dir (no browser tab). */
 import { spawn, type ChildProcess } from 'node:child_process';
 import http from 'node:http';
-import { mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
 import { tmpdir } from 'node:os';
 import path from 'node:path';
 import { afterAll, beforeAll, describe, expect, it } from 'vitest';
+import { WebSocket } from 'ws';
 
 const PORT = 5191 + Math.floor(Math.random() * 50);
 const BASE = `http://127.0.0.1:${PORT}`;
@@ -127,4 +128,134 @@ describe('companion server', () => {
     const bad = await call('/api/projects/..%2F..%2Fetc');
     expect(bad.status).toBe(400);
   });
+
+  it('saves exports into an allowed sub-folder only (portrait studio renders)', async () => {
+    const ok = await call('/api/exports?dir=portraits&name=sheet.png', { method: 'POST', headers: { 'content-type': 'image/png' }, body: 'png' });
+    expect(ok.status).toBe(200);
+    expect(ok.body.path).toBe(path.join(data, 'exports', 'portraits', 'sheet.png'));
+    const again = await call('/api/exports?dir=portraits&name=sheet.png', { method: 'POST', headers: { 'content-type': 'image/png' }, body: 'png' });
+    expect(again.body.path).toBe(path.join(data, 'exports', 'portraits', 'sheet_2.png')); // never overwrites by default
+    const replaced = await call('/api/exports?dir=portraits&overwrite=1&name=sheet.png', { method: 'POST', headers: { 'content-type': 'image/png' }, body: 'png2' });
+    expect(replaced.body.path).toBe(path.join(data, 'exports', 'portraits', 'sheet.png'));
+    expect(replaced.body.bytes).toBe(4);
+    const bad = await call('/api/exports?dir=..%2F..&name=x.png', { method: 'POST', headers: { 'content-type': 'image/png' }, body: 'png' });
+    expect(bad.status).toBe(400);
+    expect(bad.body.error.code).toBe('BAD_DIR');
+  });
+
+  it('stores portraits: create from a preset, list, update, validate, live-reload notice, trash', async () => {
+    expect(readFileSync(path.resolve(import.meta.dirname, '..', 'schema', 'portrait.schema.json'), 'utf8')).toContain('director3d.portrait');
+    const created = await call('/api/portraits', { method: 'POST', body: JSON.stringify({ preset: 'female-eastAsian', name: '測試人像' }) });
+    expect(created.status).toBe(200);
+    const id = created.body.id as string;
+    expect(id).toMatch(/^pt_/);
+    expect(created.body.portrait.params['base.eastAsian']).toBe(1);
+    const bad = await call('/api/portraits', { method: 'POST', body: JSON.stringify({ preset: 'elf' }) });
+    expect(bad.body.error.code).toBe('UNKNOWN_PRESET');
+
+    const list = await call('/api/portraits');
+    expect(list.body.map((p: { id: string }) => p.id)).toContain(id);
+    const got = await call(`/api/portraits/${id}`);
+    expect(got.body.name).toBe('測試人像');
+
+    // a tab registers as a portrait tab and hears about external edits
+    const ws = new WebSocket(`ws://127.0.0.1:${PORT}/bridge?token=${token}`, { headers: { origin: BASE } });
+    await new Promise((r, j) => {
+      ws.once('open', r);
+      ws.once('error', j);
+    });
+    ws.send(JSON.stringify({ type: 'hello', kind: 'portrait', projectId: id }));
+    const heard = new Promise<string>((resolve) => ws.on('message', (d) => {
+      const msg = JSON.parse(String(d));
+      if (msg.type === 'portrait-changed') resolve(msg.id);
+    }));
+    await new Promise((r) => setTimeout(r, 200));
+    const file = path.join(data, 'portraits', `${id}.json`);
+    const doc = JSON.parse(readFileSync(file, 'utf8'));
+    writeFileSync(file, JSON.stringify({ ...doc, params: { ...doc.params, 'face.nose.length': 0.4 } }, null, 2));
+    expect(await Promise.race([heard, new Promise((r) => setTimeout(() => r('timeout'), 3000))])).toBe(id);
+    // director agent requests are not routed to a portrait tab
+    const rpc = await call('/api/rpc', { method: 'POST', body: JSON.stringify({ method: 'projects.list', params: {} }) });
+    expect(rpc.status).toBe(200);
+    ws.close();
+
+    const put = await call(`/api/portraits/${id}`, { method: 'PUT', body: JSON.stringify({ portrait: { ...doc, params: { 'face.eyes.size': 0.5, 'face.nose.widht': 1 } } }) });
+    expect(put.status).toBe(200);
+    expect(put.body.warnings.join(' ')).toContain('face.nose.width');
+    expect((await call(`/api/portraits/${id}`)).body.params).toEqual({ 'face.eyes.size': 0.5 });
+    const mismatch = await call(`/api/portraits/${id}`, { method: 'PUT', body: JSON.stringify({ portrait: { ...doc, id: 'pt_other123' } }) });
+    expect(mismatch.body.error.code).toBe('ID_MISMATCH');
+    writeFileSync(file, '{ not json');
+    const v = await call(`/api/portraits/${id}/validate`);
+    expect(v.body.ok).toBe(false);
+    expect((await call('/api/portraits/..%2Fsecret')).status).toBe(400);
+
+    const del = await call(`/api/portraits/${id}`, { method: 'DELETE' });
+    expect(del.body.movedTo).toBe('portraits/.trash/');
+    expect((await call(`/api/portraits/${id}`)).status).toBe(404);
+  });
+
+  it('stores reference photos with a portrait and moves them to the trash with it', async () => {
+    const id = (await call('/api/portraits', { method: 'POST', body: JSON.stringify({ preset: null, name: '照片測試' }) })).body.id as string;
+    const jpeg = Buffer.from([0xff, 0xd8, 0xff, 0xe0, 1, 2, 3, 0xff, 0xd9]);
+    const up = await call(`/api/portraits/${id}/refs`, { method: 'POST', headers: { 'content-type': 'image/jpeg' }, body: jpeg });
+    expect(up.status).toBe(200);
+    expect(up.body.refId).toMatch(/^ref[0-9a-f]{10}$/);
+    expect(up.body.file).toBe(`refs/${id}/${up.body.refId}.jpg`);
+    const name = `${up.body.refId}.jpg`;
+    expect(readFileSync(path.join(data, 'portraits', 'refs', id, name))).toEqual(jpeg);
+    const res = await fetch(`${BASE}/api/portraits/${id}/refs/${name}`, { headers: { 'x-director-token': token } });
+    expect(res.headers.get('content-type')).toBe('image/jpeg');
+    expect(Buffer.from(await res.arrayBuffer())).toEqual(jpeg);
+    expect((await fetch(`${BASE}/api/portraits/${id}/refs/${name}`)).status).toBe(401);
+    expect((await call(`/api/portraits/${id}/refs`, { method: 'POST', headers: { 'content-type': 'text/plain' }, body: 'x' })).status).toBe(415);
+    expect((await call(`/api/portraits/${id}/refs/..%2F..%2Fsecret.jpg`)).status).toBe(400);
+    // the reference is recorded in the document by a command (headless here)
+    const run = await call('/api/portrait-rpc', { method: 'POST', body: JSON.stringify({ method: 'run', params: { portraitId: id, commands: [{ cmd: 'portrait.addReference', args: { id: up.body.refId, file: up.body.file, note: '正面' } }] } }) });
+    expect(run.body.result.ok).toBe(true);
+    expect((await call(`/api/portraits/${id}`)).body.references).toEqual([{ id: up.body.refId, file: up.body.file, note: '正面', focal35: null }]);
+    // deleting the portrait takes its photos to the trash too
+    expect((await call(`/api/portraits/${id}`, { method: 'DELETE' })).status).toBe(200);
+    expect(existsSync(path.join(data, 'portraits', 'refs', id))).toBe(false);
+  });
+
+  it('answers portrait agent requests headless (no portrait tab): create, run, get, measure, check', async () => {
+    const rpc = (method: string, params: Record<string, unknown> = {}) => call('/api/portrait-rpc', { method: 'POST', body: JSON.stringify({ method, params }) });
+    expect(String((await rpc('help')).body.result)).toContain('measure');
+    const params = (await rpc('listParams', { keys: ['face.nose.width'] })).body.result;
+    expect(params[0].label).toBe('鼻子寬度');
+    expect(JSON.stringify((await rpc('listPresets')).body.result)).toContain('丹鳳眼');
+    const created = (await rpc('create', { preset: 'male-european', name: 'Agent 測試', framing: 'head' })).body.result;
+    expect(created.id).toMatch(/^pt_/);
+    const id = created.id as string;
+    const bad = (await rpc('run', { portraitId: id, commands: [{ cmd: 'portrait.set', args: { params: { 'face.nose.widht': 1 } } }, { cmd: 'portrait.applyTraits', args: { traits: ['xx'] } }] })).body.result;
+    expect(bad.ok).toBe(false);
+    expect(bad.errors).toHaveLength(2);
+    const dry = (await rpc('run', { portraitId: id, dryRun: true, commands: [{ cmd: 'portrait.applyTraits', args: { traits: ['丹鳳眼'] } }] })).body.result;
+    expect(dry.ok && dry.dryRun).toBe(true);
+    expect((await rpc('get', { portraitId: id })).body.result.params['face.eyes.tilt']).toBeUndefined();
+    const assets = existsSync(path.resolve(import.meta.dirname, '..', 'public', 'portrait', 'mh', 'weights.bin'));
+    if (assets) {
+      const ran = (await rpc('run', { portraitId: id, commands: [{ cmd: 'portrait.applyTraits', args: { traits: ['丹鳳眼', '高鼻樑'] } }] })).body.result;
+      expect(ran.ok).toBe(true);
+      expect(ran.headless).toBe(true);
+      expect(ran.measures.heightCm).toBeCloseTo(178, 0);
+      const got = (await rpc('get', { portraitId: id })).body.result;
+      expect(got.params['face.eyes.tilt']).toBe(0.7);
+      expect(got.framing.type).toBe('head');
+      const m = (await rpc('measure', { portraitId: id })).body.result;
+      expect(m.z.canthalTilt).toBeGreaterThan(0.5); // tilted eyes measured against the average man
+      expect(m.description.join(' ')).toContain('眼尾上揚');
+      expect(m.summary).toContain('男性');
+      const checks = (await rpc('check', { portraitId: id })).body.result;
+      expect(Array.isArray(checks)).toBe(true);
+    }
+    const render = await rpc('render', { portraitId: id });
+    expect(render.status).toBe(409);
+    expect(render.body.error.code).toBe('NO_RENDERER');
+    const health = (await call('/api/health')).body;
+    expect(health.portraitTabs).toBe(0);
+    expect(health.currentPortrait).toBe(id);
+  }, 30000);
 });
+
